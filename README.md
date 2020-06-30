@@ -59,7 +59,8 @@ lcat2pw -x 1 -d ERR2401483_proccessed_normalid.fasta  -o candidatex.txt -w wrk
 lcat2cns -x 0 -t 40 -p 100000 -a 100 -l 100 -r 0.6  -c 4  -k 10 candidatex.txt ERR2401483_proccessed_normalid.fasta corrected_reads.fastq
 ```
 ## 4.Program Descriptions
-We describe in detail each module of LCAT, including their options and output formats.### lcat2pw
+We describe in detail each module of LCAT, including their options and output formats.
+### lcat2pw
 #### Input Format
 LCAT is capable of processing FASTA, FASTQ, format files.
 #### Options
