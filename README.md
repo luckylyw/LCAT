@@ -18,11 +18,13 @@ wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.15-patch1/
 tar xzvf hdf5-1.8.15-patch1.tar.gz
 mkdir hdf5
 cd hdf5-1.8.15-patch1
-./configure --enable-cxx --prefix=/home/luoluo/tool/LCAT/hdf5
+./configure --enable-cxx --prefix=/home/luoluo/tool/hdf5
 make
 make install
 cd ..
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/luoluo/tool/LCAT/hdf5/lib
+export HDF5_INCLUDE=/home/wjzhang/lyw/tool/hdf5/include
+export HDF5_LIB=/home/wjzhang/lyw/tool/hdf5/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/luoluo/tool/hdf5/lib
 ```
 The header files of HDF5 are in hdf5/include. The library files of HDF5 are in hdf5/lib
 ### Install dextract
@@ -30,7 +32,9 @@ The header files of HDF5 are in hdf5/include. The library files of HDF5 are in h
 git clone https://github.com/PacificBiosciences/DEXTRACTOR.git
 cp LCAT/dextract_makefile DEXTRACTOR
 cd DEXTRACTOR
-export PATH=/home/luoluo/tool/LCAT/DEXTRACTOR:$PATH
+export PATH=/home/luoluo/tool/DEXTRACTOR:$PATH
+edit the dextractor_makefile (line 7) :
+${CC} $(CFLAGS) -I$(HDF5_INCLUDE) -L$(HDF5_LIB) -o dextract dextract.c sam.c bax.c expr.c DB.c QV.c -lhdf5 -lz
 make -f dextract_makefile
 cd ..
 ```
