@@ -5,7 +5,7 @@ LCAT is a wrapper algorithm of MECAT in order to reduce the loss of isoform dive
 ## 2.Installation
 ### Install LCAT
 ```
-git clone LCAT.zip
+git clone https://github.com/luckylyw/LCAT.git
 cd LCAT
 make
 cd ..
