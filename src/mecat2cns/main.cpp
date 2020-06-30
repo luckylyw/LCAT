@@ -3,9 +3,9 @@
 
 int main(int argc, char** argv)
 {
-    ReadsCorrectionOptions rco;//这句话改完了
+    ReadsCorrectionOptions rco;
     std::cout<<"1 done."<<"\n";
-	int r = parse_arguments(argc, argv, rco);//这句改完了
+	int r = parse_arguments(argc, argv, rco);
 	std::cout <<"2 done." <<"\n";
 	print_options(rco);
 	if (r) {

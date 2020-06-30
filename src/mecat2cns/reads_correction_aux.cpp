@@ -83,14 +83,11 @@ void normalize_gaps(const char* qstr, const char* tstr, const index_t aln_size, 
 
 void slide_window(std::string& str1, std::string& str2, const int k){//slide windows strategy
     if(str1.size() != str2.size()){
-        //std::cout << "the input string s are wrong" << "\n";
         return;
     }
     int len = str1.size();
     int same_base = 0;
     double identity = 0;
-    //std::cout<<"string length = " << len << "\n";
-    //std::cout<<"the window length = " << k << "\n";
     std::string window1 = str1.substr(0, k);
     std::string window2 = str2.substr(0, k);
     for(int i = 0; i < k; ++i){
@@ -99,24 +96,17 @@ void slide_window(std::string& str1, std::string& str2, const int k){//slide win
         }
     }
     identity = (double)same_base/k;
-    //std::cout << "window1 = " << window1 << "\n";
-    //std::cout << "window2 = " << window2 << "\n";
-    //std::cout << "identity = " << identity << "\n";//后续再看，太长了
     for(int index = 1; index <= len - k; ++index){
         if(window1.substr(0,1) == window2.substr(0,1)){
             --same_base;
         }
         window1 = str1.substr(index, k);;
         window2 = str2.substr(index, k);
-        //std::cout << "window1 = " << window1 << "\n";
-        //std::cout << "window2 = " << window2 << "\n";
         if(window1.substr(k-1, 1) == window2.substr(k-1, 1)){
             ++same_base;
         }
         identity = (double)same_base/k;
-        //std::cout << identity << "\n";//后续再看，太长了
     }
-    //std::cout << "\n";
     return;
 }
 
@@ -142,7 +132,6 @@ slide_window2(const std::string& str1, const std::string& str2, std::string& new
     if(identity < identity_threshold){
         newstr1[0] = 'N';
     }
-    //cout << identity << ",";
     for(int index = 1; index <= len - k; ++index){
         if(window1.substr(0,1) == window2.substr(0,1)){
             --same_base;
@@ -156,9 +145,7 @@ slide_window2(const std::string& str1, const std::string& str2, std::string& new
         if(identity < identity_threshold){
             newstr1[index] = 'N';
         }
-        //cout << identity << ",";
     }
-    //std::cout << "hehe:" << newstr1 << "\n";
     int newk = k;
     for(int index = len - newk + 1; index < len && newk > 0; ++index){
         if(window1.substr(0,1) == window2.substr(0,1)){
@@ -171,12 +158,7 @@ slide_window2(const std::string& str1, const std::string& str2, std::string& new
         if(identity < identity_threshold){
             newstr1[index] = 'N';
         }
-        //cout << identity << ",";
     }
-    //cout << "str1:" << str1 <<"\n";
-    //cout << "str2:" << str2 <<"\n";
-    //std::cout << "newstr1:" << newstr1 <<"\n";
-    //std::cout << "skip function" << "\n";
     return;
 }
 
@@ -205,9 +187,9 @@ build_cns_thrd_data_can(ExtensionCandidate* ec_list,
 						std::ostream* out,
 					    ConsensusThreadData** ppctd)
 {//build_cns_thrd_data_can(ec_list, num_ec, min_read_id, max_read_id, &rco, &reads, &out, pctds);
-	const index_t num_reads = max_rid - min_rid + 1;//读数 数量
-	const int num_threads = prco->num_threads;//线程数
-    const index_t num_reads_per_thread = (num_reads + num_threads - 1) / num_threads;//每个线程的读数 数量
+	const index_t num_reads = max_rid - min_rid + 1;
+	const int num_threads = prco->num_threads;
+    const index_t num_reads_per_thread = (num_reads + num_threads - 1) / num_threads;
 	std::sort(ec_list, ec_list + nec, CmpExtensionCandidateBySid());
 	idx_t max_id = min_rid;
 	idx_t i = 0, j;

@@ -484,8 +484,7 @@ bool GetAlignment(const char* query, const int query_start, const int query_size
 				  DiffRunningData* drd, M5Record& m5, double error_rate,
 				  const int min_aln_size)
 {//entry
-    //GetAlignment(qstr.data(), qext, qstr.size(), tstr.data(), sext, tstr.size(), drd, *m5, 0.20, min_align_size);
-	int flag = dw(query, query_size, query_start,
+    int flag = dw(query, query_size, query_start,
 				  target, target_size, target_start,
 				  drd->DynQ, drd->DynT, 
 				  drd->align, drd->d_path,
@@ -532,22 +531,14 @@ bool GetAlignment(const char* query, const int query_start, const int query_size
 	const int end_aln_id = k + 1;
 	
 	m5qsize(m5) = query_size;
-    //std::cout<<"m5qsize(m5) = query_size;"<<m5qsize(m5)<<"\n";
 	m5qoff(m5) = drd->result->query_start + qrb;
-    //std::cout<<"m5qoff(m5) = drd->result->query_start + qrb;"<<m5qoff(m5)<<"\n";
 	m5qend(m5) = drd->result->query_end - qre;
-    //std::cout<<"m5qend(m5) = drd->result->query_end - qre;"<<m5qend(m5)<<"\n";
 	m5qdir(m5) = FWD;
-    //std::cout<<"m5qdir(m5) = FWD;"<<m5qdir(m5)<<"\n";
 
 	m5ssize(m5) = target_size;
-    //std::cout<<"m5ssize(m5) = target_size;"<<m5ssize(m5)<<"\n";
 	m5soff(m5) = drd->result->target_start + trb;
-    //std::cout<<"m5soff(m5) = drd->result->target_start + trb;"<<m5soff(m5)<<"\n";
 	m5send(m5) = drd->result->target_end - tre;
-    //std::cout<<"m5send(m5) = drd->result->target_end - tre;"<<m5send(m5)<<"\n";
 	m5sdir(m5) = FWD;
-    //std::cout<<"m5sdir(m5) = FWD;"<<m5sdir(m5)<<"\n";
 
 	const int aln_size = end_aln_id - start_aln_id;
 

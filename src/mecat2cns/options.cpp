@@ -222,7 +222,7 @@ int
 parse_arguments(int argc, char* argv[], ConsensusOptions& t)
 {
 	bool parse_success = true;
-	int tech = detect_tech(argc, argv);//确定读数测序技术
+	int tech = detect_tech(argc, argv);
 	if (tech == -1) {
 		return 1;
 	} 
