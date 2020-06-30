@@ -30,7 +30,7 @@ The header files of HDF5 are in hdf5/include. The library files of HDF5 are in h
 git clone https://github.com/PacificBiosciences/DEXTRACTOR.git
 cp LCAT/dextract_makefile DEXTRACTOR
 cd DEXTRACTOR
-export PATH=/home/luoluo/tool/mecat/DEXTRACTOR:$PATH
+export PATH=/home/luoluo/tool/LCAT/DEXTRACTOR:$PATH
 make -f dextract_makefile
 cd ..
 ```
