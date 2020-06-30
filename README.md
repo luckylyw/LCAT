@@ -139,5 +139,5 @@ D is the length of the corrected sequence
 by effective position we mean the position in the original sequence that is covered by at least c (the argument to the option -c) reads.
 ## 5.Citation
 LCAT: long-read error correction algorithm for transcriptome sequencing data
-## 6.Contact
-Yuwen Luo, luoyuwen@csu.edu.com
+## 6.License
+Copyright (C) 2020 Yuwen Luo (luoyuwen@csu.edu.com) School of Computer Science and Engineering Central South University ChangSha CHINA, 410083
